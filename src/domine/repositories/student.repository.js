@@ -7,4 +7,8 @@ export class StudentRepository {
         throw new Error('Method not implemented');
     }
 
+    async findAll(){
+        throw new Error('Method not implemented');
+    }
+
 }

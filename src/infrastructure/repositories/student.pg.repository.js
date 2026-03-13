@@ -12,4 +12,9 @@ export class StudentPgRepository extends StudentRepository {
         const result = pool.query('SELECT * FROM students WHERE id = $1', [id]);
         return new Student(result.rows[0]);
     }
+
+    findAll(){
+        const result = pool.query('SELECT * FROM students');
+        return result.rows.map(row => new Student(row));    
+    }
 }
