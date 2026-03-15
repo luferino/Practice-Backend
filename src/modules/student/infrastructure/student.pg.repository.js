@@ -1,6 +1,6 @@
-import {StudentRepository} from '../../domine/repositories/student.repository.js';
-import {pool} from '../database/connection.postgres.js';
-import {Student} from '../../domine/entities/student.entity.js';
+import {StudentRepository} from '../domine/student.repository.js';
+import {pool} from '../../../database/connection.postgres.js';
+import {Student} from '../domine/student.entity.js';
 
 export class StudentPgRepository extends StudentRepository {
     create({id, name, email}){
