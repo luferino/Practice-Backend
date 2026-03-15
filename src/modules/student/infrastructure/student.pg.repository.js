@@ -4,7 +4,7 @@ import {Student} from '../domine/student.entity.js';
 
 export class StudentPgRepository extends StudentRepository {
     create({id, name, email}){
-        const result = pool.query('INSERT INTO students (id, name, email) VALUES ($1, $2, $3) RETURNING *', [id, name, email]);
+        const result = pool.query('INSERT INTO students (name, email) VALUES ($1, $2) RETURNING *', [name, email]);
         return new Student(result.rows[0]);
     }
 

@@ -1,4 +1,4 @@
-export class estudentController {
+export class StudentController {
     constructor(createStudentUseCase, listStudentUseCase){
         this.createStudentUseCase = createStudentUseCase;
         this.listStudentUseCase = listStudentUseCase;
