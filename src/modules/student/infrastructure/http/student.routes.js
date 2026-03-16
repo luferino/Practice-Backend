@@ -2,7 +2,7 @@ import { Router } from "express";
 import { StudentController } from "./student.controller.js";
 import { CreateStudentUseCase } from "../../application/create.student.usecase.js";
 import { ListStudentUseCase } from "../../application/list.student.usecase.js";
-import { StudentPgRepository } from "../student.pg.repository.js";
+import { StudentPgRepository } from "../persistence/student.pg.repository.js";
 
 const router = Router();
 
