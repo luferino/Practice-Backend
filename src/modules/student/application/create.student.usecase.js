@@ -3,7 +3,11 @@ export class CreateStudentUseCase {
         this.studentRepository = studentRepository;
     }
 
-    async execute(student){
+    async execute(data){
+        const student = {
+            name: data.name,
+            email: data.email
+        }
         return await this.studentRepository.create(student);
     }
 }
