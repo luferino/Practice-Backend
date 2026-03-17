@@ -12,7 +12,7 @@ const listStudentUseCase = new ListStudentUseCase(studentPgRepository);
 const studentController = new StudentController(createStudentUseCase, listStudentUseCase);
 
 export const studentRoutes = () => {
-    
+
 router.post("/", studentController.create);
 router.get("/", studentController.list);
 

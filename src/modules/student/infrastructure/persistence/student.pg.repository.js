@@ -3,7 +3,7 @@ import {pool} from '../../../../database/connection.postgres.js';
 import {Student} from '../../domain/student.entity.js';
 
 export class StudentPgRepository extends StudentRepository {
-    async create({id, name, email}){
+    async create({name, email}){
         const result = await pool.query('INSERT INTO students (name, email) VALUES ($1, $2) RETURNING *', [name, email]);
         return new Student(result.rows[0]);
     }

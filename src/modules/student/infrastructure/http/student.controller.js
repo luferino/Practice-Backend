@@ -7,6 +7,7 @@ export class StudentController {
     create = async (req, res) => {
         try {
             const student = req.body;
+            console.log(student);
             const createdStudent = await this.createStudentUseCase.execute(student);
             res.status(201).json(createdStudent);
         } catch (error) {
