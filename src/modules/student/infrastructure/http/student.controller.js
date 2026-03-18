@@ -5,9 +5,9 @@ export class StudentController {
     }
 
     create = async (req, res) => {
+        //console.log('BODY:', req.body);
         try {
             const student = req.body;
-            console.log(student);
             const createdStudent = await this.createStudentUseCase.execute(student);
             res.status(201).json(createdStudent);
         } catch (error) {
@@ -15,7 +15,7 @@ export class StudentController {
         }
     }
 
-    list = async (req, res) => {
+    list = async (req, res) => { 
         try {
             const students = await this.listStudentUseCase.execute();
             res.status(200).json(students);

@@ -1,5 +1,8 @@
 export class Student {
     constructor(id, name, email) {
+
+    //console.log('🔥 CONSTRUCTOR:', { id, name, email });
+
         if (!name || !email) {
             throw new Error('Name and email are required');
         }

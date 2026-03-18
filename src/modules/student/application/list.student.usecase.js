@@ -4,6 +4,6 @@ export class ListStudentUseCase {
     }
 
     async execute(){
-        return await this.studentRepository.findAll ();
+        return await this.studentRepository.findAll();
     }
 }
