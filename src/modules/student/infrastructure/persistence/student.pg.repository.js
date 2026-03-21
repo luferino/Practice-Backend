@@ -1,7 +1,6 @@
 import {StudentRepository} from '../../domain/student.repository.js';
 import {pool} from '../../../../database/connection.postgres.js';
-import {Student} from '../../domain/student.entity.js';
-import { StudentAdapter } from './adapters/student.adapter.js';
+import { StudentAdapter } from '../../adapters/student.adapter.js';
 
 export class StudentPgRepository extends StudentRepository {
     async create({name, email}){
