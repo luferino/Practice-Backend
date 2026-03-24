@@ -22,7 +22,7 @@ export class StudentPgRepository extends StudentRepository {
 
     async getBySearch(params){
         const { clause, values } = buildStudentQuery(params);
-        const result = await pool.query(`SELECT * FROM students WHERE ${clause}`, values);
+        const result = await pool.query(`SELECT * FROM students WHERE ${clause}`, values); 
         return result.rows.map(row => StudentAdapter.toEntity(row));
     }
 }

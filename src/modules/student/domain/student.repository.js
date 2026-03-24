@@ -11,4 +11,7 @@ export class StudentRepository {
         throw new Error('Method not implemented');
     }
 
+    async getBySearch(params){
+        throw new Error('Method not implemented');
+    }
 }
