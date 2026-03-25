@@ -26,8 +26,14 @@ export class StudentController {
 
     getBySearch = async (req, res) => {
         try {
-            const params = req.query;
-            const students = await this.getStudentUseCase.execute(params);
+            const {like, mode, ...filters} = req.query;
+            const students = await this.getStudentUseCase.execute(
+                {
+                    filters,
+                    like: like === 'true',
+                    mode: mode || 'AND'
+                }
+            );
             res.status(200).json(students);
         } catch (error) {
             res.status(400).json({ error: error.message });

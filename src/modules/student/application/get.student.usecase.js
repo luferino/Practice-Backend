@@ -3,7 +3,10 @@ export class GetStudentUseCase {
         this.studentRepository = studentRepository;
     }
 
-    async execute(params) {
-        return this.studentRepository.getBySearch(params);
+    async execute({filters, like, mode}) {
+        if (!filters || Object.keys(filters).length === 0) {
+            throw new Error('At least one filter must be provided');
+        }
+        return this.studentRepository.getBySearch({filter: filters, like, mode});
     }
 }
