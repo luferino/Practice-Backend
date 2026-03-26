@@ -11,7 +11,8 @@ export class StudentRepository {
         throw new Error('Method not implemented');
     }
 
-    async getBySearch(params){
+    async getBySearch({filter, like, mode}){
+        console.log('Received filters in repository:', filter, 'like:', like, 'mode:', mode);
         throw new Error('Method not implemented');
     }
 }

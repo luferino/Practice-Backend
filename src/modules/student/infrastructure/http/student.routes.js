@@ -17,7 +17,7 @@ const studentController = new StudentController(createStudentUseCase, listStuden
 export const studentRoutes = () => {
 
 router.post("/", studentController.create);
-router.get("/", studentController.list);
+router.get("/", studentController.list); 
 router.get("/search", studentController.getBySearch);
 
 return router;

@@ -11,7 +11,6 @@ export const buildStudentQuery = ({filter = {}, like =  false, mode = 'AND'}) =>
     )
 );*/
     const entries = Object.entries(filter).filter(([key]) => STUDENT_FIELDS.includes(key));
-
     if(entries.length === 0) {
         throw new Error('No valid fields provided for filtering');
     }

@@ -2,7 +2,7 @@ import {StudentRepository} from '../../domain/student.repository.js';
 import {pool} from '../../../../database/connection.postgres.js';
 import { StudentAdapter } from '../../adapters/student.adapter.js';
 import { buildStudentQuery } from '../../infrastructure/db/queryBuilder.js';
-
+   const STUDENT_FIELDS = ['id', 'name', 'email'];
 export class StudentPgRepository extends StudentRepository {
     async create({name, email}){
         const result = await pool.query('INSERT INTO students (name, email) VALUES ($1, $2) RETURNING *', [name, email]);
@@ -20,9 +20,14 @@ export class StudentPgRepository extends StudentRepository {
         return result.rows.map(row => StudentAdapter.toEntity(row));    
     }
 
-    async getBySearch(params){
-        const { clause, values } = buildStudentQuery(params);
-        const result = await pool.query(`SELECT * FROM students WHERE ${clause}`, values); 
+    async getBySearch({filter, like, mode}){
+        
+        const { clause, values } = buildStudentQuery({filter, like, mode});
+
+        const query = `SELECT * FROM students WHERE ${clause}`;
+       
+        const result = await pool.query(query, values); 
+        
         return result.rows.map(row => StudentAdapter.toEntity(row));
     }
 }

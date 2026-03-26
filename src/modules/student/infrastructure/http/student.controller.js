@@ -1,7 +1,8 @@
 export class StudentController {
-    constructor(createStudentUseCase, listStudentUseCase){
+    constructor(createStudentUseCase, listStudentUseCase, getStudentUseCase) {
         this.createStudentUseCase = createStudentUseCase;
         this.listStudentUseCase = listStudentUseCase;
+        this.getStudentUseCase = getStudentUseCase;
     }
 
     create = async (req, res) => {
@@ -26,10 +27,10 @@ export class StudentController {
 
     getBySearch = async (req, res) => {
         try {
-            const {like, mode, ...filters} = req.query;
-            const students = await this.getStudentUseCase.execute(
+            const {like, mode, ...filter} = req.query;
+            const students = await this.getStudentUseCase.searchStudents(
                 {
-                    filters,
+                    filter,
                     like: like === 'true',
                     mode: mode || 'AND'
                 }
