@@ -9,4 +9,4 @@ export class GetStudentUseCase {
         }
         return this.studentRepository.getBySearch({filter: filters, like, mode});
     }
-}
+}   
