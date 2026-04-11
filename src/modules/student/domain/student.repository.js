@@ -15,4 +15,12 @@ export class StudentRepository {
         console.log('Received filters in repository:', filter, 'like:', like, 'mode:', mode);
         throw new Error('Method not implemented');
     }
+
+    async update(id, student){
+        throw new Error('Method not implemented');
+    }
+
+    async delete(id){
+        throw new Error('Method not implemented');
+    }
 }
