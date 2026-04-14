@@ -16,4 +16,6 @@ export const subjectRoutes = () => {
 router.post("/", subjectController.create);
 router.get("/", subjectController.list);
 
+return router;
+
 }

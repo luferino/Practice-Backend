@@ -7,13 +7,8 @@ const app = express();
 
 app.use(express.json());
 
-
 app.use('/students', studentRoutes());
 app.use('/subjects', subjectRoutes());
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
 return app;
 }
